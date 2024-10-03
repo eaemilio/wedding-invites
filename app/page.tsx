@@ -68,7 +68,7 @@ export default async function Index() {
               </div>
             </div>
           </section>
-          <section className="w-full shrink-0 snap-start px-10 py-16">
+          <section className="w-full shrink-0 snap-start px-10 py-16 text-zinc-900">
             <h2 className="font-lejour-serif w-full text-5xl">Itinerario</h2>
             <h2 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-25">
               Lleno de momentos especiales
