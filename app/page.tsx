@@ -24,6 +24,7 @@ export default async function Index() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              unoptimized
             />
           </section>
           <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
@@ -46,6 +47,7 @@ export default async function Index() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              unoptimized
             />
             <div className="z-10 absolute w-full h-full main-gradient"></div>
             <div className="w-full px-10 py-16">
@@ -119,7 +121,40 @@ export default async function Index() {
               <div className="mt-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
             </div>
           </section>
-          <section className="w-full shrink-0 snap-start bg-zinc-900 px-10 py-16"></section>
+          <section className="w-full shrink-0 snap-start bg-zinc-900 px-10 py-16">
+            <h2 className="font-lejour-serif w-full text-5xl text-white">
+              Dress Code
+            </h2>
+            <h2 className="-mt-3 mx-10 font-lejour-script w-full text-xl text-white opacity-25">
+              Full black
+            </h2>
+            <div className="flex my-10">
+              <div className="w-full h-[550px] relative">
+                <Image
+                  src="/images/collage.jpg"
+                  alt="wedding"
+                  fill={true}
+                  objectFit="cover"
+                />
+              </div>
+            </div>
+          </section>
+          <section className="w-full shrink-0 snap-start">
+            <div className="px-10 py-16 pb-6">
+              <h2 className="font-lejour-serif w-full text-5xl">Ubicación</h2>
+              <h2 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-25">
+                El lago más hermoso del mundo
+              </h2>
+            </div>
+            <div className="w-full h-72 relative">
+              <Image
+                src="/images/map4.png"
+                alt="map"
+                fill={true}
+                objectFit="cover"
+              />
+            </div>
+          </section>
         </div>
       </main>
     </>
