@@ -26,7 +26,7 @@ export default async function Index() {
               fill={true}
             />
           </section>
-          <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16">
+          <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
             <h2 className="font-lejour-serif w-full text-left text-5xl">
               Familia Barrientos
             </h2>
