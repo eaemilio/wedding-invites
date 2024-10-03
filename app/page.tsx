@@ -141,8 +141,10 @@ export default async function Index() {
           </section>
           <section className="w-full shrink-0 snap-start">
             <div className="px-10 py-16 pb-6">
-              <h2 className="font-lejour-serif w-full text-5xl">Ubicación</h2>
-              <h2 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-25">
+              <h2 className="font-lejour-serif w-full text-5xl text-zinc-900">
+                Ubicación
+              </h2>
+              <h2 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-25 text-zinc-900">
                 El lago más hermoso del mundo
               </h2>
             </div>
