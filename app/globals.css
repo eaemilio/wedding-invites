@@ -67,3 +67,34 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'LeJourSerif';
+  src: url('/fonts/LeJourSerif/font.woff2') format('woff2'),
+       url('/fonts/LeJourSerif/font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LeJourScript';
+  src: url('/fonts/LeJourScript/font.woff2') format('woff2'),
+       url('/fonts/LeJourScript/font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hatton';
+  src: url('/fonts/hatton-medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.main-gradient {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent);
+}
+
+body {
+  background-color: #fbf6f2 !important;
+}
