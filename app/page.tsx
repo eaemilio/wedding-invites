@@ -8,7 +8,7 @@ export default async function Index() {
   return (
     <>
       <main className="flex-1 flex flex-col">
-        <div className="relative h-screen snap-y snap-mandatory flex-col gap-6 overflow-y-auto">
+        <div className="relative h-dvh snap-y snap-mandatory flex-col gap-6 overflow-y-auto">
           <section className="h-full w-full shrink-0 snap-start">
             <div className="absolute z-20 top-3/4 left-5">
               <h3 className="font-lejour-script text-lg text-white">
