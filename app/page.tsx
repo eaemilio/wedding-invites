@@ -132,7 +132,7 @@ export default async function Index() {
               <div className="w-full h-[550px] relative">
                 <Image
                   src="/images/collage.jpg"
-                  alt="wedding"
+                  alt="Dress code"
                   fill={true}
                   objectFit="cover"
                 />
@@ -154,6 +154,7 @@ export default async function Index() {
                 alt="map"
                 fill={true}
                 objectFit="cover"
+                unoptimized
               />
             </div>
           </section>
