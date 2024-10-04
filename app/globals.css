@@ -95,7 +95,7 @@
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent);
 }
 
-body {
+.main-container {
   background-color: #fbf6f2 !important;
 }
 
