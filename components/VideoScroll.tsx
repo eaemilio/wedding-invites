@@ -70,7 +70,8 @@ const VideoScroll = () => {
         src="videos/output.mp4"
         playsInline={true}
         preload="auto"
-        muted={true}
+        autoPlay
+        muted
         className="video-background"
       />
       <div ref={containerRef} id="container"></div>
