@@ -24,6 +24,15 @@ const VideoScroll = () => {
       return onceFn;
     }
 
+    const forcePause = () => {
+      if (!video) return;
+      video.removeAttribute('autoplay');
+      video.currentTime = 0;
+      video.pause();
+    };
+
+    video?.addEventListener('loadeddata', forcePause);
+
     if (video) {
       // Play and pause video on first touch
       once(document.documentElement, 'touchstart', function () {
@@ -70,6 +79,7 @@ const VideoScroll = () => {
         src="videos/output.mp4"
         playsInline={true}
         preload="auto"
+        autoPlay
         muted
         className="video-background"
       />
