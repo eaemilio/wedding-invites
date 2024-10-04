@@ -157,7 +157,8 @@ export default async function Index() {
                 fill={true}
                 unoptimized
               />
-              <MapButton />
+              <MapButton map="maps" />
+              <MapButton map="waze" />
             </div>
 
             <div className="w-full flex flex-col justify-center items-center mb-10">

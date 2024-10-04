@@ -4,20 +4,19 @@ import { Playfair_Display } from 'next/font/google';
 import React from 'react';
 const playfair = Playfair_Display({ subsets: [] });
 
-export default function MapButton() {
+export default function MapButton({ map }: { map: 'waze' | 'maps' }) {
   const goToLocation = () => {
-    const now = new Date().valueOf();
+    if (map === 'maps') {
+      window.open(
+        'https://www.google.com/maps/place/Hotel+y+Centro+de+Convenciones+Jardines+del+Lago/@14.7405099,-91.1648109,17z/data=!3m1!4b1!4m9!3m8!1s0x85894b8fa76d3cbf:0x1c3db4c0e4b055eb!5m2!4m1!1i2!8m2!3d14.7405099!4d-91.162236!16s%2Fg%2F1hc1wk9tz?entry=ttu&g_ep=EgoyMDI0MTAwMS4wIKXMDSoASAFQAw%3D%3D',
+        '_blank'
+      );
+
+      return;
+    }
+
     window.location.href =
       'waze://?ll=14.7405099%2C-91.1648109&navigate=yes&zoom=17';
-
-    setTimeout(function () {
-      if (new Date().valueOf() - now > 100) {
-        window.open(
-          'https://www.google.com/maps/place/Hotel+y+Centro+de+Convenciones+Jardines+del+Lago/@14.7405099,-91.1648109,17z/data=!3m1!4b1!4m9!3m8!1s0x85894b8fa76d3cbf:0x1c3db4c0e4b055eb!5m2!4m1!1i2!8m2!3d14.7405099!4d-91.162236!16s%2Fg%2F1hc1wk9tz?entry=ttu&g_ep=EgoyMDI0MTAwMS4wIKXMDSoASAFQAw%3D%3D',
-          '_blank'
-        );
-      }
-    }, 100);
   };
 
   return (
@@ -25,7 +24,7 @@ export default function MapButton() {
       className={`${playfair.className} z-10 bg-zinc-900 text-white pl-12 pr-11 py-2 flex text-sm justify-center items-center`}
       onClick={() => goToLocation()}
     >
-      Abrir Mapa
+      Abrir {map === 'waze' ? 'Waze' : 'Maps'}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
