@@ -6,15 +6,18 @@ const playfair = Playfair_Display({ subsets: [] });
 
 export default function MapButton() {
   const goToLocation = () => {
-    var now = new Date().valueOf();
+    const now = new Date().valueOf();
+    window.location.href =
+      'waze://?ll=14.7405099%2C-91.1648109&navigate=yes&zoom=17';
+
     setTimeout(function () {
-      if (new Date().valueOf() - now > 100) return;
-      window.open(
-        'https://www.google.com/maps/place/Hotel+y+Centro+de+Convenciones+Jardines+del+Lago/@14.7405099,-91.1648109,17z/data=!3m1!4b1!4m9!3m8!1s0x85894b8fa76d3cbf:0x1c3db4c0e4b055eb!5m2!4m1!1i2!8m2!3d14.7405099!4d-91.162236!16s%2Fg%2F1hc1wk9tz?entry=ttu&g_ep=EgoyMDI0MTAwMS4wIKXMDSoASAFQAw%3D%3D',
-        '_blank'
-      );
-    }, 25);
-    window.open('waze://?ll=14.7405099%2C-91.1648109&navigate=yes&zoom=17');
+      if (new Date().valueOf() - now > 100) {
+        window.open(
+          'https://www.google.com/maps/place/Hotel+y+Centro+de+Convenciones+Jardines+del+Lago/@14.7405099,-91.1648109,17z/data=!3m1!4b1!4m9!3m8!1s0x85894b8fa76d3cbf:0x1c3db4c0e4b055eb!5m2!4m1!1i2!8m2!3d14.7405099!4d-91.162236!16s%2Fg%2F1hc1wk9tz?entry=ttu&g_ep=EgoyMDI0MTAwMS4wIKXMDSoASAFQAw%3D%3D',
+          '_blank'
+        );
+      }
+    }, 100);
   };
 
   return (
