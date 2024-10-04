@@ -132,7 +132,7 @@ export default async function Index() {
             <div className="flex my-10">
               <div className="w-full h-[550px] relative">
                 <Image
-                  src="/images/collage.jpg"
+                  src="/images/dress-code.jpg"
                   alt="Dress code"
                   fill={true}
                   className="object-cover"
