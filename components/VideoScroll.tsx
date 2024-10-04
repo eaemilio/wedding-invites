@@ -89,7 +89,7 @@ const VideoScroll = () => {
         className="video-background"
       />
       <div ref={containerRef} id="container"></div>
-      <div className="main-container relative">
+      <div className="main-container relative" style={{ marginTop: -900 }}>
         <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
           <h2 className="font-lejour-serif w-full text-left text-5xl">
             Familia Barrientos
