@@ -149,7 +149,7 @@ export default async function Index() {
                 El lago más hermoso del mundo
               </h2>
             </div>
-            <div className="w-full h-72 relative flex flex-col justify-center items-center">
+            <div className="w-full h-72 relative flex flex-col justify-center items-center gap-2">
               <Image
                 className="object-cover"
                 src="/images/map.png"
