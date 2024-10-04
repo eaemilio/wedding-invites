@@ -25,9 +25,9 @@ const VideoScroll = () => {
     }
 
     if (video) {
+      // Play and pause video on first touch
       once(document.documentElement, 'touchstart', function () {
         video.play();
-        video.pause();
       });
 
       // Fetch video for blob URL
@@ -50,7 +50,6 @@ const VideoScroll = () => {
           const scrollTop = window.scrollY;
           const scrollHeight = container.scrollHeight - window.innerHeight;
           const scrollFraction = scrollTop / scrollHeight;
-          console.log(scrollFraction, video.duration);
           video.currentTime = scrollFraction * video.duration; // Update video currentTime
         }
       };
