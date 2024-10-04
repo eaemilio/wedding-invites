@@ -28,6 +28,7 @@ const VideoScroll = () => {
       // Play and pause video on first touch
       once(document.documentElement, 'touchstart', function () {
         video.play();
+        video.pause();
       });
 
       // Fetch video for blob URL
