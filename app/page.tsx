@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { Marcellus, Playfair, Playfair_Display } from 'next/font/google';
+import { Marcellus, Playfair_Display } from 'next/font/google';
+import MapButton from '@/components/MapButton';
 
 const playfair = Playfair_Display({ subsets: [] });
 const marcellus = Marcellus({ weight: '400', subsets: [] });
@@ -134,13 +135,13 @@ export default async function Index() {
                   src="/images/collage.jpg"
                   alt="Dress code"
                   fill={true}
-                  objectFit="cover"
+                  className="object-cover"
                 />
               </div>
             </div>
           </section>
           <section className="w-full shrink-0 snap-start">
-            <div className="px-10 py-16 pb-6">
+            <div className="px-10 pt-16">
               <h2 className="font-lejour-serif w-full text-5xl text-zinc-900">
                 Ubicación
               </h2>
@@ -148,14 +149,33 @@ export default async function Index() {
                 El lago más hermoso del mundo
               </h2>
             </div>
-            <div className="w-full h-72 relative">
+            <div className="w-full h-72 relative flex flex-col justify-center items-center">
               <Image
-                src="/images/map4.png"
+                className="object-cover"
+                src="/images/map.png"
                 alt="map"
                 fill={true}
-                objectFit="cover"
                 unoptimized
               />
+              <MapButton />
+            </div>
+
+            <div className="w-full flex flex-col justify-center items-center mb-10">
+              <label
+                className={`font-lejour-serif z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
+              >
+                HOTEL JARDINES DEL LAGO
+              </label>
+              <label
+                className={`${playfair.className} text-xs z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
+              >
+                Calle Monterrey, Panajachel
+              </label>
+              <label
+                className={`${playfair.className} text-xs z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
+              >
+                7762 6114
+              </label>
             </div>
           </section>
         </div>
