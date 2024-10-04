@@ -1,93 +1,15 @@
-'use client';
-
 import Image from 'next/image';
 import { Marcellus, Playfair_Display } from 'next/font/google';
 import MapButton from '@/components/MapButton';
-import { useEffect, useRef } from 'react';
-import { ScrollTrigger } from 'gsap/all';
-import gsap from 'gsap';
 
 const playfair = Playfair_Display({ subsets: [] });
 const marcellus = Marcellus({ weight: '400', subsets: [] });
 
-gsap.registerPlugin(ScrollTrigger);
-
-export default function Index() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Helper function for once event listener
-  const once = (
-    el: HTMLElement,
-    event: string,
-    fn: (e: Event) => void,
-    opts?: AddEventListenerOptions
-  ) => {
-    const onceFn = (e: Event) => {
-      el.removeEventListener(event, onceFn);
-      fn(e);
-    };
-    el.addEventListener(event, onceFn, opts);
-  };
-
-  useEffect(() => {
-    const video = videoRef.current;
-
-    console.log(video);
-    if (video) {
-      const src = video.currentSrc || video.src;
-
-      // Handle iOS video activation
-      once(document.documentElement, 'touchstart', () => {
-        video.play();
-        video.pause();
-      });
-
-      // Scroll-triggered video scrub using GSAP
-      const tl = gsap.timeline({
-        defaults: { duration: 1 },
-        scrollTrigger: {
-          trigger: '#container', // Adjust the container trigger as per your layout
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: true,
-        },
-      });
-
-      once(video, 'loadedmetadata', () => {
-        tl.fromTo(
-          video,
-          { currentTime: 0 },
-          { currentTime: video.duration || 1 }
-        );
-      });
-
-      // Fetch the video as a Blob for better performance (especially for iOS)
-      setTimeout(() => {
-        fetch(src)
-          .then((response) => response.blob())
-          .then((blob) => {
-            const blobURL = URL.createObjectURL(blob);
-            const currentTime = video.currentTime;
-
-            once(document.documentElement, 'touchstart', () => {
-              video.play();
-              video.pause();
-            });
-
-            video.setAttribute('src', blobURL);
-            video.currentTime = currentTime + 0.01;
-          });
-      }, 1000);
-    }
-  }, []);
-
+export default async function Index() {
   return (
     <>
       <main className="flex-1 flex flex-col">
-        <div
-          id="container"
-          className="relative h-dvh flex-col gap-6 overflow-y-auto"
-        >
+        <div className="relative h-dvh snap-y snap-mandatory flex-col gap-6 overflow-y-auto">
           <section className="h-full w-full shrink-0 snap-start">
             <div className="absolute z-20 top-2/3 left-5">
               <h3 className="font-lejour-script text-lg text-white">
@@ -98,12 +20,12 @@ export default function Index() {
               </h1>
             </div>
             <div className="z-10 absolute w-full h-full main-gradient"></div>
-            <video
-              ref={videoRef}
-              src="/videos/master.mp4"
-              className="object-cover w-full h-full"
-              playsInline
-              muted
+            <Image
+              src="/images/SDYERALDYEMILIO-40.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
             />
           </section>
           <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
