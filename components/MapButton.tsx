@@ -22,7 +22,7 @@ export default function MapButton() {
 
   return (
     <button
-      className={`${playfair.className} z-10 bg-zinc-900 text-white pl-12 pr-12 py-2 flex text-sm justify-center items-center`}
+      className={`${playfair.className} z-10 bg-zinc-900 text-white pl-12 pr-11 py-2 flex text-sm justify-center items-center`}
       onClick={() => goToLocation()}
     >
       Abrir Mapa
