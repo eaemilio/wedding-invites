@@ -32,6 +32,7 @@ export default function Index() {
   useEffect(() => {
     const video = videoRef.current;
 
+    console.log(video);
     if (video) {
       const src = video.currentSrc || video.src;
 
@@ -62,22 +63,20 @@ export default function Index() {
 
       // Fetch the video as a Blob for better performance (especially for iOS)
       setTimeout(() => {
-        if (window.fetch) {
-          fetch(src)
-            .then((response) => response.blob())
-            .then((blob) => {
-              const blobURL = URL.createObjectURL(blob);
-              const currentTime = video.currentTime;
+        fetch(src)
+          .then((response) => response.blob())
+          .then((blob) => {
+            const blobURL = URL.createObjectURL(blob);
+            const currentTime = video.currentTime;
 
-              once(document.documentElement, 'touchstart', () => {
-                video.play();
-                video.pause();
-              });
-
-              video.setAttribute('src', blobURL);
-              video.currentTime = currentTime + 0.01;
+            once(document.documentElement, 'touchstart', () => {
+              video.play();
+              video.pause();
             });
-        }
+
+            video.setAttribute('src', blobURL);
+            video.currentTime = currentTime + 0.01;
+          });
       }, 1000);
     }
   }, []);
