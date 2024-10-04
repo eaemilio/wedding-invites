@@ -24,14 +24,14 @@ const VideoScroll = () => {
       return onceFn;
     }
 
-    const forcePause = () => {
-      if (!video) return;
-      video.removeAttribute('autoplay');
-      video.currentTime = 0;
-      video.pause();
-    };
+    // const forcePause = () => {
+    //   if (!video) return;
+    //   video.removeAttribute('autoplay');
+    //   video.currentTime = 0;
+    //   video.pause();
+    // };
 
-    video?.addEventListener('loadeddata', forcePause);
+    // video?.addEventListener('loadeddata', forcePause);
 
     if (video) {
       // Play and pause video on first touch
