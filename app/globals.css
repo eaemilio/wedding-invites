@@ -274,7 +274,7 @@
 	position: absolute;
 	width: 100vw;
 	height: 100vh;
-	top: 70%;
+	top: 50%;
 	left: 50%;
 	margin-left: -50vw;
 	margin-top: 0;
@@ -282,7 +282,7 @@
 }
 
 .gallery--switch.gallery--grid .caption {
-	margin-top: -300px;
+	margin-top: -200px;
 	opacity: 1;
 }
 
