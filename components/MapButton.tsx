@@ -21,7 +21,7 @@ export default function MapButton({ map }: { map: 'waze' | 'maps' }) {
 
   return (
     <button
-      className={`${playfair.className} z-10 bg-zinc-900 text-white pl-12 pr-11 py-2 flex text-sm justify-center items-center`}
+      className={`${playfair.className} z-10 border-zinc-600 border-solid border-2 text-zinc-900 pl-12 pr-11 py-2 flex text-sm justify-center items-center`}
       onClick={() => goToLocation()}
     >
       Abrir {map === 'waze' ? 'Waze' : 'Maps'}

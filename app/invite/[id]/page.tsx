@@ -2,8 +2,11 @@
 
 import Image from 'next/image';
 import { Marcellus, Playfair_Display } from 'next/font/google';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import MapButton from '@/components/MapButton';
+import { calculateTimeLeft } from '@/utils/time.utils';
+import { Button } from '@/components/ui/button';
+import DressCode from '@/components/DressCode';
 
 const playfair = Playfair_Display({ subsets: [] });
 const marcellus = Marcellus({ weight: '400', subsets: [] });
@@ -12,11 +15,23 @@ export default function Index() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
 
-    // Ensure the video is activated on iOS
     function once(
       el: HTMLElement,
       event: string,
@@ -39,13 +54,11 @@ export default function Index() {
     video?.addEventListener('loadeddata', forcePause);
 
     if (video) {
-      // Play and pause video on first touch
       once(document.documentElement, 'touchstart', function () {
         video.play();
         video.pause();
       });
 
-      // Fetch video for blob URL
       const fetchVideo = () => {
         const src = video.currentSrc || video.src;
         fetch(src)
@@ -53,19 +66,18 @@ export default function Index() {
           .then((blob) => {
             const blobURL = URL.createObjectURL(blob);
             video.setAttribute('src', blobURL);
-            video.currentTime = 0.01; // Avoids playback issue
+            video.currentTime = 0.01;
           });
       };
 
-      setTimeout(fetchVideo, 1000); // Fetch video after 1 second
+      setTimeout(fetchVideo, 1000);
 
-      // Handle scroll event to play video based on scroll position
       const handleScroll = () => {
         if (container && video) {
           const scrollTop = window.scrollY;
           const scrollHeight = container.scrollHeight - window.innerHeight;
           const scrollFraction = scrollTop / scrollHeight;
-          video.currentTime = scrollFraction * video.duration; // Update video currentTime
+          video.currentTime = scrollFraction * video.duration;
         }
       };
 
@@ -92,12 +104,12 @@ export default function Index() {
         <div className="fixed z-20 top-2/3 left-5">
           <h3 className="font-lejour-script text-lg text-white">La boda de</h3>
           <h1 className="font-lejour-serif text-7xl text-white">
-            Emilio & Yeraldy
+            EMILIO & YERALDY
           </h1>
         </div>
         <div className="z-10 fixed w-full h-full main-gradient"></div>
       </div>
-      <div className="main-container relative z-20" style={{ marginTop: -900 }}>
+      <div className="main-container relative z-20 snap-mandatory snap-y">
         <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
           <h2 className="font-lejour-serif w-full text-left text-5xl">
             Familia Barrientos
@@ -192,7 +204,7 @@ export default function Index() {
             <div className="mt-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
           </div>
         </section>
-        <section className="w-full shrink-0 snap-start bg-zinc-900 px-10 py-16">
+        {/* <section className="w-full shrink-0 snap-start bg-zinc-900 px-10 py-16">
           <h2 className="font-lejour-serif w-full text-5xl text-white">
             Dress Code
           </h2>
@@ -209,8 +221,9 @@ export default function Index() {
               />
             </div>
           </div>
-        </section>
-        <section className="w-full shrink-0 snap-start">
+        </section> */}
+        <DressCode />
+        <section className="w-full shrink-0 snap-start pb-16">
           <div className="px-10 pt-16">
             <h2 className="font-lejour-serif w-full text-5xl text-zinc-900">
               Ubicación
@@ -231,7 +244,7 @@ export default function Index() {
             <MapButton map="waze" />
           </div>
 
-          <div className="w-full flex flex-col justify-center items-center mb-10">
+          <div className="w-full flex flex-col justify-center items-center">
             <label
               className={`font-lejour-serif z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
             >
@@ -248,6 +261,86 @@ export default function Index() {
               7762 6114
             </label>
           </div>
+        </section>
+        {hasMounted && (
+          <section className="w-full shrink-0 snap-start h-[350px] relative flex flex-col justify-center items-center">
+            <Image
+              src="/images/SDYERALDYEMILIO-23.jpg"
+              alt="Cuenta Regresiva"
+              fill={true}
+              className="object-cover"
+            />
+            <div className="absolute w-full h-full main-gradient"></div>
+            <div className="z-10">
+              <h2 className={`font-lejour-script w-full text-xl text-white`}>
+                Cuenta Regresiva
+              </h2>
+              <div className="flex w-full justify-center mt-6 gap-4 opacity-90">
+                <div className="flex flex-col items-center w-[54px]">
+                  <span
+                    className={`${playfair.className} text-white text-5xl mb-4`}
+                  >
+                    {timeLeft.days < 10 ? `0${timeLeft.days}` : timeLeft.days}
+                  </span>
+                  <span className={`${playfair.className} text-white text-xs`}>
+                    Días
+                  </span>
+                </div>
+                <div className="mb-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
+                <div className="flex flex-col items-center w-[54px]">
+                  <span
+                    className={`${playfair.className} text-white text-5xl mb-4`}
+                  >
+                    {timeLeft.hours < 10
+                      ? `0${timeLeft.hours}`
+                      : timeLeft.hours}
+                  </span>
+                  <span className={`${playfair.className} text-white text-xs`}>
+                    Horas
+                  </span>
+                </div>
+                <div className="mb-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
+                <div className="flex flex-col items-center w-[54px]">
+                  <span
+                    className={`${playfair.className} text-white text-5xl mb-4`}
+                  >
+                    {timeLeft.minutes < 10
+                      ? `0${timeLeft.minutes}`
+                      : timeLeft.minutes}
+                  </span>
+                  <span className={`${playfair.className} text-white text-xs`}>
+                    Minutos
+                  </span>
+                </div>
+                <div className="mb-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
+                <div className="flex flex-col items-center w-[54px]">
+                  <span
+                    className={`${playfair.className} text-white text-5xl mb-4`}
+                  >
+                    {timeLeft.seconds < 10
+                      ? `0${timeLeft.seconds}`
+                      : timeLeft.seconds}
+                  </span>
+                  <span className={`${playfair.className} text-white text-xs`}>
+                    Segundos
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+        <section className="w-full shrink-0 snap-start px-10 py-24 flex flex-col justify-center items-center">
+          <h2 className="font-lejour-serif text-9xl text-zinc-900">RS</h2>
+          <h2 className="font-lejour-serif text-9xl text-zinc-900">VP</h2>
+          <h2 className="font-lejour-script text-sm text-zinc-900">
+            Confirma tu asistencia
+          </h2>
+          <Button className="mt-10 w-44" variant={'outline'}>
+            Sí, asistiré
+          </Button>
+          <Button className="mt-2 w-44" variant={'outline'}>
+            No asistiré
+          </Button>
         </section>
       </div>
 
