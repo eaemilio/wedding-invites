@@ -96,12 +96,8 @@
 }
 
 .main-container {
-  margin-top: -900;
+  margin-top: -900px;
   background-color: #fbf6f2 !important;
-}
-
-#container {
-  height: 500vh;
 }
 
 .gallery-wrap {
