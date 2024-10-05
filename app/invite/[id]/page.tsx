@@ -204,24 +204,6 @@ export default function Index() {
             <div className="mt-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
           </div>
         </section>
-        {/* <section className="w-full shrink-0 snap-start bg-zinc-900 px-10 py-16">
-          <h2 className="font-lejour-serif w-full text-5xl text-white">
-            Dress Code
-          </h2>
-          <h2 className="-mt-3 mx-10 font-lejour-script w-full text-xl text-white opacity-25">
-            Full black
-          </h2>
-          <div className="flex my-10">
-            <div className="w-full h-[550px] relative">
-              <Image
-                src="/images/dress-code.jpg"
-                alt="Dress code"
-                fill={true}
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </section> */}
         <DressCode />
         <section className="w-full shrink-0 snap-start pb-16">
           <div className="px-10 pt-16">
