@@ -274,14 +274,15 @@
 	position: absolute;
 	width: 100vw;
 	height: 100vh;
+	top: 70%;
 	left: 50%;
-	margin-top: 50vh;
 	margin-left: -50vw;
+	margin-top: 0;
 	opacity: 0;
 }
 
 .gallery--switch.gallery--grid .caption {
-	margin-top: -40vh;
+	margin-top: -300px;
 	opacity: 1;
 }
 
