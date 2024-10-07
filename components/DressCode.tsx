@@ -80,7 +80,7 @@ export default function DressCode() {
     const galleryCaption = caption.current;
     const galleryItems = galleryEl.querySelectorAll('.gallery__item');
     const flipstate = Flip.getState([...galleryItems, galleryCaption], {
-      props: 'filter, opacity',
+      props: 'opacity',
     });
 
     galleryEl.classList.remove('gallery--switch');
