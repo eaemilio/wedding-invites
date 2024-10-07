@@ -9,24 +9,25 @@ export default function Schedule() {
   const text1 = useRef<HTMLHeadingElement>(null);
   const text2 = useRef<HTMLHeadingElement>(null);
   const text3 = useRef<HTMLHeadingElement>(null);
+  const text = useRef<HTMLHeadingElement>(null);
 
   useGSAP(() => {
-    if (!text1.current || !text2.current || !text3.current) {
+    if (!text1.current || !text2.current || !text3.current || !text.current) {
       return;
     }
 
-    new BlurScrollEffect(text1.current, {
+    new BlurScrollEffect(text.current, {
       start: 'top bottom-=30%',
-      end: 'bottom center-=10%',
+      end: 'bottom bottom-=10%',
     });
-    new BlurScrollEffect(text2.current, {
-      start: 'top bottom-=30%',
-      end: 'bottom center-=10%',
-    });
-    new BlurScrollEffect(text3.current, {
-      start: 'top bottom-=10%',
-      end: 'bottom center+=25%',
-    });
+    // new BlurScrollEffect(text2.current, {
+    //   start: 'top bottom-=30%',
+    //   end: 'bottom center-=10%',
+    // });
+    // new BlurScrollEffect(text3.current, {
+    //   start: 'top bottom-=10%',
+    //   end: 'bottom center+=25%',
+    // });
   });
 
   return (
@@ -37,7 +38,7 @@ export default function Schedule() {
       </h2>
       <div className="flex flex-col justify-center items-center my-6">
         <div className="mb-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10" ref={text}>
           <div ref={text1}>
             <h2 className="font-lejour-serif w-full text-center text-6xl tracking-tightest">
               4 : 30
