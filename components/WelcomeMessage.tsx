@@ -13,7 +13,7 @@ export default function WelcomeMessage() {
       return;
     }
 
-    new BlurScrollEffect(welcome.current, { start: 'top bottom-=10%' });
+    new BlurScrollEffect(welcome.current, { start: 'top bottom-=40%' });
   });
 
   return (

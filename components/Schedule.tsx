@@ -15,9 +15,9 @@ export default function Schedule() {
       return;
     }
 
-    new BlurScrollEffect(text1.current);
-    new BlurScrollEffect(text2.current);
-    new BlurScrollEffect(text3.current);
+    new BlurScrollEffect(text1.current, { start: 'top bottom-=30%' });
+    new BlurScrollEffect(text2.current, { start: 'top bottom-=30%' });
+    new BlurScrollEffect(text3.current, { start: 'top bottom-=30%' });
   });
 
   return (
