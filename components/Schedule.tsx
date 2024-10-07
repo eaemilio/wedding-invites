@@ -24,8 +24,8 @@ export default function Schedule() {
       end: 'bottom center-=10%',
     });
     new BlurScrollEffect(text3.current, {
-      start: 'top bottom-=30%',
-      end: 'bottom center-=10%',
+      start: 'top bottom-=10%',
+      end: 'bottom center+=25%',
     });
   });
 
