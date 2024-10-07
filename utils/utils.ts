@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 /**
  * Redirects to a specified path with an encoded message as a query parameter.
@@ -8,9 +8,22 @@ import { redirect } from "next/navigation";
  * @returns {never} This function doesn't return as it triggers a redirect.
  */
 export function encodedRedirect(
-  type: "error" | "success",
+  type: 'error' | 'success',
   path: string,
-  message: string,
+  message: string
 ) {
   return redirect(`${path}?${type}=${encodeURIComponent(message)}`);
+}
+
+export function once(
+  el: HTMLElement,
+  event: string,
+  fn: (...args: any[]) => void
+) {
+  const onceFn = function (this: any, ...args: any[]) {
+    el.removeEventListener(event, onceFn);
+    fn.apply(this, args);
+  };
+  el.addEventListener(event, onceFn);
+  return onceFn;
 }
