@@ -140,7 +140,7 @@ export default function Index() {
         }
 
         #container {
-          height: 550vh;
+          height: 350vh;
         }
       `}</style>
     </div>
