@@ -139,7 +139,7 @@
 	flex: none;
 	border-radius: 6px;
 	position: relative;
-	/* filter: brightness(1); */
+	filter: brightness(1);
 }
 
 .gallery__item-cut { 
@@ -221,13 +221,13 @@
 .gallery--one .gallery__item {
 	width: 400%;
 	height: 400%;
-	/* filter: brightness(1) hue-rotate(90deg); */
+	filter: brightness(1) hue-rotate(90deg);
 }
 
 .gallery--switch.gallery--one .gallery__item {
 	width: 100%;
 	height: 100%;
-	/* filter: brightness(0.7) hue-rotate(0deg); */
+	filter: brightness(0.7) hue-rotate(0deg);
 }
 
 .gallery--one .caption {
@@ -267,7 +267,7 @@
 .gallery--switch.gallery--grid .gallery__item {
 	height: 110vh;
 	width: 110vw;
-	/* filter: brightness(0.65); */
+	filter: brightness(0.65);
 }
 
 .gallery--grid .caption {
