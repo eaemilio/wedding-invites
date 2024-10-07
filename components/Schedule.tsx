@@ -1,9 +1,25 @@
+import { BlurScrollEffect } from '@/utils/BlurScrollEffect';
+import { useGSAP } from '@gsap/react';
 import { Marcellus } from 'next/font/google';
-import React from 'react';
+import React, { useRef } from 'react';
 
 const marcellus = Marcellus({ weight: '400', subsets: [] });
 
 export default function Schedule() {
+  const text1 = useRef<HTMLHeadingElement>(null);
+  const text2 = useRef<HTMLHeadingElement>(null);
+  const text3 = useRef<HTMLHeadingElement>(null);
+
+  useGSAP(() => {
+    if (!text1.current || !text2.current || !text3.current) {
+      return;
+    }
+
+    new BlurScrollEffect(text1.current);
+    new BlurScrollEffect(text2.current);
+    new BlurScrollEffect(text3.current);
+  });
+
   return (
     <>
       <h2 className="font-lejour-serif w-full text-5xl">Itinerario</h2>
@@ -13,7 +29,7 @@ export default function Schedule() {
       <div className="flex flex-col justify-center items-center my-6">
         <div className="mb-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
         <div className="flex flex-col gap-10">
-          <div>
+          <div ref={text1}>
             <h2 className="font-lejour-serif w-full text-center text-6xl tracking-tightest">
               4 : 30
             </h2>
@@ -26,7 +42,7 @@ export default function Schedule() {
               CEREMONIA
             </h2>
           </div>
-          <div>
+          <div ref={text2}>
             <h2 className="font-lejour-serif w-full text-center text-6xl tracking-tightest">
               5 : 30
             </h2>
@@ -39,7 +55,7 @@ export default function Schedule() {
               COCTEL
             </h2>
           </div>
-          <div>
+          <div ref={text3}>
             <h2 className="font-lejour-serif w-full text-center text-6xl tracking-tightest">
               6 : 30
             </h2>

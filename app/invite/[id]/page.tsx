@@ -114,7 +114,7 @@ export default function Index() {
         }
 
         #container {
-          height: 350vh;
+          height: 550vh;
         }
       `}</style>
     </div>
