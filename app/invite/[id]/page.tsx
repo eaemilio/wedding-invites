@@ -42,7 +42,7 @@ export default function Index() {
     const video = videoRef.current;
     const container = containerRef.current;
 
-    // initSmoothScrolling();
+    initSmoothScrolling();
 
     if (!video) {
       return;
