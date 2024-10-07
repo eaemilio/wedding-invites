@@ -2,35 +2,13 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
 import { Flip } from 'gsap/Flip';
 import { useGSAP } from '@gsap/react';
 import { Playfair_Display } from 'next/font/google';
 
-gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Flip);
 
 const playfair = Playfair_Display({ subsets: [] });
-
-const initSmoothScrolling = () => {
-  // Instantiate the Lenis object with specified properties
-  const lenis = new Lenis({
-    lerp: 0.1, // Lower values create a smoother scroll effect
-    smoothWheel: true, // Enables smooth scrolling for mouse wheel events
-  });
-
-  // Update ScrollTrigger each time the user scrolls
-  lenis.on('scroll', () => ScrollTrigger.update());
-
-  // Define a function to run at each animation frame
-  const scrollFn = (time: number) => {
-    lenis.raf(time); // Run Lenis' requestAnimationFrame method
-    requestAnimationFrame(scrollFn); // Recursively call scrollFn on each frame
-  };
-  // Start the animation frame loop
-  requestAnimationFrame(scrollFn);
-};
 
 export default function DressCode() {
   const component = useRef<HTMLDivElement>(null);
@@ -92,7 +70,6 @@ export default function DressCode() {
 
   useEffect(() => {
     const galleryEl = gallery.current;
-    initSmoothScrolling();
 
     if (!galleryEl) {
       return;
