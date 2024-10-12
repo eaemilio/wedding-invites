@@ -1,20 +1,25 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
 import MapButton from './MapButton';
 import { Playfair_Display } from 'next/font/google';
+import { animateTitle } from '@/utils/animate-title';
+import { useGSAP } from '@gsap/react';
 
 const playfair = Playfair_Display({ subsets: [] });
 
 export default function Venue() {
+  const hello = useRef<HTMLDivElement>(null);
+  useGSAP(() => animateTitle(), { scope: hello });
+
   return (
-    <>
+    <div ref={hello}>
       <div className="px-10 pt-16">
-        <h2 className="font-lejour-serif w-full text-5xl text-zinc-900">
+        <h2 className="font-lejour-serif w-full text-5xl text-zinc-900 opacity-0 -ml-10">
           Ubicación
         </h2>
-        <h2 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-25 text-zinc-900">
+        <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-0 text-zinc-900">
           El lago más hermoso del mundo
-        </h2>
+        </h3>
       </div>
       <div className="w-full h-72 relative flex flex-col justify-center items-center gap-2">
         <Image
@@ -45,6 +50,6 @@ export default function Venue() {
           7762 6114
         </label>
       </div>
-    </>
+    </div>
   );
 }

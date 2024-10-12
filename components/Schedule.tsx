@@ -1,4 +1,5 @@
 import { BlurScrollEffect } from '@/utils/BlurScrollEffect';
+import { animateTitle } from '@/utils/animate-title';
 import { useGSAP } from '@gsap/react';
 import { Marcellus } from 'next/font/google';
 import React, { useRef } from 'react';
@@ -7,7 +8,9 @@ const marcellus = Marcellus({ weight: '400', subsets: [] });
 
 export default function Schedule() {
   const text = useRef<HTMLHeadingElement>(null);
+  const section = useRef<HTMLDivElement>(null);
 
+  useGSAP(() => animateTitle(), { scope: section });
   useGSAP(() => {
     if (!text.current) {
       return;
@@ -20,11 +23,13 @@ export default function Schedule() {
   });
 
   return (
-    <>
-      <h2 className="font-lejour-serif w-full text-5xl">Itinerario</h2>
-      <h2 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-25">
-        Lleno de momentos especiales
+    <div ref={section}>
+      <h2 className="font-lejour-serif w-full text-5xl opacity-0 -ml-10">
+        Itinerario
       </h2>
+      <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-0">
+        Lleno de momentos especiales
+      </h3>
       <div className="flex flex-col justify-center items-center my-6">
         <div className="mb-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
         <div className="flex flex-col gap-10" ref={text}>
@@ -70,6 +75,6 @@ export default function Schedule() {
         </div>
         <div className="mt-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
       </div>
-    </>
+    </div>
   );
 }

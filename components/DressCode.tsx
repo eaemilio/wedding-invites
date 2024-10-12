@@ -97,7 +97,7 @@ export default function DressCode() {
         ref={gallery}
       >
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/5.jpg"
               alt="wedding"
@@ -108,7 +108,7 @@ export default function DressCode() {
           </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/2.jpg"
               alt="wedding"
@@ -119,7 +119,7 @@ export default function DressCode() {
           </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/3.jpg"
               alt="wedding"
@@ -130,7 +130,7 @@ export default function DressCode() {
           </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/4.jpg"
               alt="wedding"
@@ -141,7 +141,7 @@ export default function DressCode() {
           </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/1.jpg"
               alt="wedding"
@@ -152,7 +152,7 @@ export default function DressCode() {
           </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/6.jpg"
               alt="wedding"
@@ -163,7 +163,7 @@ export default function DressCode() {
           </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/7.jpg"
               alt="wedding"
@@ -174,7 +174,7 @@ export default function DressCode() {
           </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/8.jpg"
               alt="wedding"
@@ -185,7 +185,7 @@ export default function DressCode() {
           </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div className="gallery__item-inner">
+          <div className="gallery__item-inner relative">
             <Image
               src="/images/9.jpg"
               alt="wedding"
