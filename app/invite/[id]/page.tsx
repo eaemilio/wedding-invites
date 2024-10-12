@@ -116,6 +116,8 @@ export default function Index() {
           opacity: 0,
           ease: 'circ.out',
         });
+
+        setTimeout(() => document.getElementById('loader')?.remove(), 2200);
       }
     },
     { dependencies: [imagesLoaded, videoLoaded] }
@@ -124,6 +126,7 @@ export default function Index() {
   return (
     <div className="relative" ref={mainContainerRef}>
       <div
+        id="loader"
         className={`main-loader z-50 fixed w-screen h-screen flex items-center justify-center bg-zinc-950 text-xl text-white`}
       >
         <Loader />
