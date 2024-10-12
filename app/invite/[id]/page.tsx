@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import DressCode from '@/components/DressCode';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import TheDate from '@/components/TheDate';
@@ -12,6 +12,9 @@ import { once } from '@/utils/utils';
 import Lenis from 'lenis';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
+import imagesloaded from 'imagesloaded';
+import Loader from '@/components/ui/loader';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,8 +38,27 @@ const initSmoothScrolling = () => {
 };
 
 export default function Index() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const mainContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (!mainContainerRef.current) {
+        return;
+      }
+
+      const imgLoad = imagesloaded(mainContainerRef.current, {
+        background: true,
+      });
+
+      imgLoad.on('done', () => setImagesLoaded(true));
+      imgLoad.on('fail', () => setImagesLoaded(true));
+    }, 1000);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -51,6 +73,7 @@ export default function Index() {
     video.addEventListener('loadeddata', () => {
       video.currentTime = 0;
       video.pause();
+      setVideoLoaded(true);
     });
 
     once(document.documentElement, 'touchstart', function () {
@@ -87,8 +110,26 @@ export default function Index() {
     };
   }, []);
 
+  useGSAP(
+    () => {
+      if (imagesLoaded && videoLoaded) {
+        gsap.to('.main-loader', {
+          duration: 2,
+          opacity: 0,
+          ease: 'circ.out',
+        });
+      }
+    },
+    { dependencies: [imagesLoaded, videoLoaded] }
+  );
+
   return (
-    <div className="relative">
+    <div className="relative" ref={mainContainerRef}>
+      <div
+        className={`main-loader z-50 fixed w-screen h-screen flex items-center justify-center bg-zinc-950 text-xl text-white`}
+      >
+        <Loader />
+      </div>
       <video
         ref={videoRef}
         src="../videos/output.mp4"
@@ -140,7 +181,7 @@ export default function Index() {
         }
 
         #container {
-          height: 350vh;
+          height: 500vh;
         }
       `}</style>
     </div>

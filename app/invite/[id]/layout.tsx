@@ -3,5 +3,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <main className="min-h-screen flex flex-col">{children}</main>;
+  return <main className="h-screen flex flex-col">{children}</main>;
 }

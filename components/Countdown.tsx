@@ -13,7 +13,7 @@ export default function Countdown() {
     setHasMounted(true);
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(timer);
     };

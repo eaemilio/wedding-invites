@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { useGSAP } from '@gsap/react';
 import { Playfair_Display } from 'next/font/google';
+import Image from 'next/image';
 
 gsap.registerPlugin(Flip);
 
@@ -80,7 +81,7 @@ export default function DressCode() {
     const galleryCaption = caption.current;
     const galleryItems = galleryEl.querySelectorAll('.gallery__item');
     const flipstate = Flip.getState([...galleryItems, galleryCaption], {
-      props: 'opacity',
+      props: 'filter, opacity',
     });
 
     galleryEl.classList.remove('gallery--switch');
@@ -96,58 +97,103 @@ export default function DressCode() {
         ref={gallery}
       >
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/1.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/5.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/2.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/2.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/3.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/3.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/4.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/4.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/7.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/1.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/5.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/6.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/6.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/7.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/8.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/8.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="gallery__item gallery__item-cut">
-          <div
-            className="gallery__item-inner"
-            style={{ backgroundImage: 'url(/images/9.jpg)' }}
-          ></div>
+          <div className="gallery__item-inner">
+            <Image
+              src="/images/9.jpg"
+              alt="wedding"
+              className="object-cover"
+              fill={true}
+              unoptimized
+            />
+          </div>
         </div>
         <div className="caption flex flex-col px-10" ref={caption}>
           <h2 className="font-lejour-serif w-full text-left text-5xl text-white">
