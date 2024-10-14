@@ -64,18 +64,16 @@ export default function Index() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mainContainerRef = useRef<HTMLDivElement>(null);
 
-  setTimeout(() => {
-    if (!mainContainerRef.current) {
-      return;
-    }
+  if (!mainContainerRef.current) {
+    return;
+  }
 
-    const imgLoad = imagesloaded(mainContainerRef.current, {
-      background: true,
-    });
+  const imgLoad = imagesloaded(mainContainerRef.current, {
+    background: true,
+  });
 
-    imgLoad.on('done', () => setImagesLoaded(true));
-    imgLoad.on('fail', () => setImagesLoaded(true));
-  }, 1000);
+  imgLoad.on('done', () => setImagesLoaded(true));
+  imgLoad.on('fail', () => setImagesLoaded(true));
 
   useEffect(() => {
     const video = videoRef.current;
