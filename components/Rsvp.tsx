@@ -35,14 +35,14 @@ export default function Rsvp({ guest }: Props) {
         Confirma tu asistencia
       </h2>
       <Button
-        className={`mt-10 w-44 ${rsvp === true ? 'text-white' : 'text-zinc-900'}`}
+        className={`mt-10 w-44 ${rsvp === true ? 'text-white bg-zinc-900' : 'text-zinc-900'}`}
         variant={rsvp === true ? 'default' : 'outline'}
         onClick={() => submitAnswer(true)}
       >
         Sí, asistiré
       </Button>
       <Button
-        className={`mt-2 w-44 ${rsvp === false ? 'text-white' : 'text-zinc-900'}`}
+        className={`mt-2 w-44 ${rsvp === false ? 'text-white bg-zinc-900' : 'text-zinc-900'}`}
         variant={rsvp === false ? 'default' : 'outline'}
         onClick={() => submitAnswer(false)}
       >
