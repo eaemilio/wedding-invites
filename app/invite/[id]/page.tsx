@@ -154,7 +154,9 @@ export default function Index() {
           Por favor, verifica el código de tu invitación
         </p>
         <Link href="/">
-          <Button className="w-44 text-white mt-10">Volver a Inicio</Button>
+          <Button className="w-44 text-white mt-10 bg-zinc-900">
+            Volver a Inicio
+          </Button>
         </Link>
       </div>
     );

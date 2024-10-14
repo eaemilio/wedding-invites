@@ -54,7 +54,7 @@ export default function Index() {
           className={`${playfair.className} w-56 text-center text-white uppercase backdrop-blur-xl bg-transparent px-4 py-2 rounded-sm active:border-none focus:border-none active:outline-none focus:outline-none`}
         />
         <Button
-          className="w-56 text-white mt-2"
+          className="w-56 text-white mt-2 bg-zinc-900"
           onClick={submit}
           disabled={!isButtonEnabled}
         >
