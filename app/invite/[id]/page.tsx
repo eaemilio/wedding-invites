@@ -55,6 +55,8 @@ export default function Index() {
     single: true,
   });
 
+  console.log(result);
+
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
