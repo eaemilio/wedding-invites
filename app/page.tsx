@@ -56,7 +56,7 @@ export default function Index() {
         <Button
           className="w-56 text-white mt-2"
           onClick={submit}
-          disabled={isButtonEnabled}
+          disabled={!isButtonEnabled}
         >
           Acceder
         </Button>
