@@ -15,8 +15,17 @@ import gsap from 'gsap';
 import imagesloaded from 'imagesloaded';
 import Loader from '@/components/ui/loader';
 import { useGSAP } from '@gsap/react';
+import { useParams } from 'next/navigation';
+import { UseSupaDataFilter } from '@/utils/supabase/hooks';
+import { Playfair_Display } from 'next/font/google';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { Tables } from '@/database.types';
+import { Guest } from '@/types/Guest';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const playfair = Playfair_Display({ subsets: [] });
 
 const initSmoothScrolling = () => {
   // Instantiate the Lenis object with specified properties
@@ -38,6 +47,14 @@ const initSmoothScrolling = () => {
 };
 
 export default function Index() {
+  const { id } = useParams();
+  const { result, isLoading } = UseSupaDataFilter<Guest>({
+    select: '*',
+    table: 'guests',
+    filters: [{ key: 'invite_code', value: id as string }],
+    single: true,
+  });
+
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
@@ -62,7 +79,7 @@ export default function Index() {
     const video = videoRef.current;
     const container = containerRef.current;
 
-    // initSmoothScrolling();
+    initSmoothScrolling();
 
     if (!video) {
       return;
@@ -110,7 +127,7 @@ export default function Index() {
 
   useGSAP(
     () => {
-      if (imagesLoaded && videoLoaded) {
+      if (imagesLoaded && videoLoaded && !isLoading) {
         gsap.to('.main-loader', {
           duration: 2,
           opacity: 0,
@@ -120,8 +137,28 @@ export default function Index() {
         setTimeout(() => document.getElementById('loader')?.remove(), 2200);
       }
     },
-    { dependencies: [imagesLoaded, videoLoaded] }
+    { dependencies: [imagesLoaded, videoLoaded, isLoading] }
   );
+
+  const guest: Guest | undefined | null = result?.data;
+
+  if (!guest && !isLoading) {
+    return (
+      <div className="h-screen w-screen flex flex-col items-center justify-center py-10 px-6">
+        <h2
+          className={`w-full text-center text-3xl font-bold ${playfair.className}`}
+        >
+          ¡Parece que esta invitación no existe!
+        </h2>
+        <p className={`mt-4 w-full text-center ${playfair.className}`}>
+          Por favor, verifica el código de tu invitación
+        </p>
+        <Link href="/">
+          <Button className="w-44 text-white mt-10">Volver a Inicio</Button>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="relative" ref={mainContainerRef}>
@@ -151,7 +188,7 @@ export default function Index() {
       </div>
       <div className="main-container relative z-20 snap-mandatory snap-y">
         <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
-          <WelcomeMessage />
+          {guest && <WelcomeMessage guest={guest} />}
         </section>
         <section className="relative w-full shrink-0 snap-start">
           <TheDate />
@@ -169,7 +206,7 @@ export default function Index() {
           <Countdown />
         </section>
         <section className="w-full shrink-0 snap-start px-10 py-24 flex flex-col justify-center items-center">
-          <Rsvp />
+          {guest && <Rsvp guest={guest} />}
         </section>
       </div>
 
