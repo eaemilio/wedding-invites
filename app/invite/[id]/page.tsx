@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { use, useEffect, useRef, useState } from 'react';
 import DressCode from '@/components/DressCode';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import TheDate from '@/components/TheDate';
@@ -55,8 +55,6 @@ export default function Index() {
     single: true,
   });
 
-  console.log(result);
-
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
@@ -64,16 +62,18 @@ export default function Index() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mainContainerRef = useRef<HTMLDivElement>(null);
 
-  if (!mainContainerRef.current) {
-    return;
-  }
+  useEffect(() => {
+    if (!mainContainerRef.current) {
+      return;
+    }
 
-  const imgLoad = imagesloaded(mainContainerRef.current, {
-    background: true,
-  });
+    const imgLoad = imagesloaded(mainContainerRef.current, {
+      background: true,
+    });
 
-  imgLoad.on('done', () => setImagesLoaded(true));
-  imgLoad.on('fail', () => setImagesLoaded(true));
+    imgLoad.on('done', () => setImagesLoaded(true));
+    imgLoad.on('fail', () => setImagesLoaded(true));
+  }, [mainContainerRef]);
 
   useEffect(() => {
     const video = videoRef.current;
