@@ -12,7 +12,7 @@ const playfair = Playfair_Display({ subsets: [] });
 
 export default function WelcomeMessage({ guest }: Props) {
   const section = useRef<HTMLDivElement>(null);
-  useGSAP(() => animateTitle(), { scope: section });
+  // useGSAP(() => animateTitle(), { scope: section });
 
   return (
     <div className="welcome-section" ref={section}>

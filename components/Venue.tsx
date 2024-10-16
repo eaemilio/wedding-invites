@@ -9,7 +9,7 @@ const playfair = Playfair_Display({ subsets: [] });
 
 export default function Venue() {
   const hello = useRef<HTMLDivElement>(null);
-  useGSAP(() => animateTitle(), { scope: hello });
+  // useGSAP(() => animateTitle(), { scope: hello });
 
   return (
     <div ref={hello}>

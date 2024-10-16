@@ -16,7 +16,7 @@ export default function TheDate() {
     new BlurScrollEffect(dateElement.current);
   });
 
-  useGSAP(() => animateTitle(), { scope: section });
+  // useGSAP(() => animateTitle(), { scope: section });
 
   return (
     <div ref={section} className="relative">

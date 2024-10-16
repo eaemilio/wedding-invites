@@ -10,7 +10,7 @@ export default function Schedule() {
   const text = useRef<HTMLHeadingElement>(null);
   const section = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => animateTitle(), { scope: section });
+  // useGSAP(() => animateTitle(), { scope: section });
   useGSAP(() => {
     if (!text.current) {
       return;
