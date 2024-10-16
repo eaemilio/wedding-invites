@@ -30,10 +30,10 @@ export default function TheDate() {
       />
       <div className="z-10 absolute w-full h-full main-gradient"></div>
       <div className="w-full px-10 py-16">
-        <h2 className="relative z-10 font-lejour-serif w-full text-5xl text-white opacity-0 -ml-10">
+        <h2 className="relative z-10 font-lejour-serif w-full text-5xl text-white">
           La fecha
         </h2>
-        <h3 className="relative z-10 -mt-2 mx-10 font-lejour-script w-full text-xl text-white opacity-0">
+        <h3 className="relative z-10 -mt-2 mx-10 font-lejour-script w-full text-xl text-white">
           Que nunca olvidaremos
         </h3>
         <div

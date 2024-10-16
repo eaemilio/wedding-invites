@@ -14,10 +14,10 @@ export default function Venue() {
   return (
     <div ref={hello}>
       <div className="px-10 pt-16">
-        <h2 className="font-lejour-serif w-full text-5xl text-zinc-900 opacity-0 -ml-10">
+        <h2 className="font-lejour-serif w-full text-5xl text-zinc-900">
           Ubicación
         </h2>
-        <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-0 text-zinc-900">
+        <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl text-zinc-900">
           El lago más hermoso del mundo
         </h3>
       </div>

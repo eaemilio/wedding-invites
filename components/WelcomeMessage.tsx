@@ -16,10 +16,10 @@ export default function WelcomeMessage({ guest }: Props) {
 
   return (
     <div className="welcome-section" ref={section}>
-      <h2 className="font-lejour-serif w-full text-left text-5xl opacity-0 -ml-4">
+      <h2 className="font-lejour-serif w-full text-left text-5xl">
         {guest?.first_name} {guest?.last_name}
       </h2>
-      <h3 className="-mt-4 mx-10 font-lejour-script w-full text-left text-xl opacity-0">
+      <h3 className="-mt-4 mx-10 font-lejour-script w-full text-left text-xl">
         Los invitamos a celebrar con nosotros
       </h3>
       <p className={`mt-10 ${playfair.className}`}>{guest?.welcome_message}</p>

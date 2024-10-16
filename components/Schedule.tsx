@@ -24,10 +24,8 @@ export default function Schedule() {
 
   return (
     <div ref={section}>
-      <h2 className="font-lejour-serif w-full text-5xl opacity-0 -ml-10">
-        Itinerario
-      </h2>
-      <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl opacity-0">
+      <h2 className="font-lejour-serif w-full text-5xl">Itinerario</h2>
+      <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl">
         Lleno de momentos especiales
       </h3>
       <div className="flex flex-col justify-center items-center my-6">
