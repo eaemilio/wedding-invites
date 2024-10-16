@@ -42,6 +42,14 @@ export default function Index() {
         style={{ filter: 'blur(3px)', transform: 'scale(1.1)' }}
       />
       <div className="relative z-30 p-10 flex flex-col items-center justify-center">
+        <Image
+          src="/images/logo.svg"
+          alt="wedding"
+          className="object-cover mb-2 opacity-40"
+          width={75}
+          height={125}
+          unoptimized
+        />
         <h1 className={`${playfair.className} text-white text-center mb-10`}>
           Ingresa tu codigo de invitación
         </h1>
