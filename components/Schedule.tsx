@@ -11,16 +11,16 @@ export default function Schedule() {
   const section = useRef<HTMLDivElement>(null);
 
   // useGSAP(() => animateTitle(), { scope: section });
-  useGSAP(() => {
-    if (!text.current) {
-      return;
-    }
+  // useGSAP(() => {
+  //   if (!text.current) {
+  //     return;
+  //   }
 
-    new BlurScrollEffect(text.current, {
-      start: 'top bottom-=30%',
-      end: 'center center+=5%',
-    });
-  });
+  //   new BlurScrollEffect(text.current, {
+  //     start: 'top bottom-=30%',
+  //     end: 'center center+=5%',
+  //   });
+  // });
 
   return (
     <div ref={section}>

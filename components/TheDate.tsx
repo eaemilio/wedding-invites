@@ -8,13 +8,13 @@ export default function TheDate() {
   const dateElement = useRef<HTMLDivElement>(null);
   const section = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!dateElement.current) {
-      return;
-    }
+  // useGSAP(() => {
+  //   if (!dateElement.current) {
+  //     return;
+  //   }
 
-    new BlurScrollEffect(dateElement.current);
-  });
+  //   new BlurScrollEffect(dateElement.current);
+  // });
 
   // useGSAP(() => animateTitle(), { scope: section });
 
