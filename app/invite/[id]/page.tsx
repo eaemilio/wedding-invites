@@ -22,6 +22,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Tables } from '@/database.types';
 import { Guest } from '@/types/Guest';
+import Gifts from '@/components/Gifts';
 
 const playfair = Playfair_Display({ subsets: [] });
 
@@ -77,7 +78,7 @@ export default function Index() {
     const video = videoRef.current;
     const container = containerRef.current;
 
-    // initSmoothScrolling();
+    initSmoothScrolling();
 
     if (!video) {
       return;
@@ -207,6 +208,9 @@ export default function Index() {
         </section>
         <section className="w-full shrink-0 snap-start px-10 py-24 flex flex-col justify-center items-center">
           {guest && <Rsvp guest={guest} />}
+        </section>
+        <section className="w-full shrink-0 snap-start px-10 py-24 flex flex-col justify-center items-center text-white bg-zinc-900">
+          <Gifts />
         </section>
       </div>
 
