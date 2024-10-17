@@ -1,3 +1,5 @@
+'use client';
+
 import { calculateTimeLeft } from '@/utils/time.utils';
 import { Playfair_Display } from 'next/font/google';
 import Image from 'next/image';

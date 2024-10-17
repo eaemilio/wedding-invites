@@ -1,3 +1,5 @@
+'use client';
+
 import { BlurScrollEffect } from '@/utils/BlurScrollEffect';
 import { animateTitle } from '@/utils/animate-title';
 import { useGSAP } from '@gsap/react';

@@ -1,13 +1,10 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { useGSAP } from '@gsap/react';
 import { Playfair_Display } from 'next/font/google';
 import Image from 'next/image';
-
-gsap.registerPlugin(Flip);
 
 const playfair = Playfair_Display({ subsets: [] });
 
@@ -44,7 +41,7 @@ export default function DressCode() {
         scrollTrigger: {
           trigger: galleryEl,
           start: 'center center',
-          end: '+=300%',
+          end: '+=400%',
           pin: galleryEl.parentElement,
           scrub: true,
         },
@@ -59,7 +56,7 @@ export default function DressCode() {
           scrollTrigger: {
             trigger: galleryEl,
             start: 'center center',
-            end: '+=300%',
+            end: '+=400%',
             scrub: true,
           },
         },
@@ -103,7 +100,6 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
-              unoptimized
             />
           </div>
         </div>
@@ -114,7 +110,6 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
-              unoptimized
             />
           </div>
         </div>
@@ -125,7 +120,6 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
-              unoptimized
             />
           </div>
         </div>
@@ -136,7 +130,6 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
-              unoptimized
             />
           </div>
         </div>
@@ -158,7 +151,6 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
-              unoptimized
             />
           </div>
         </div>
@@ -169,7 +161,6 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
-              unoptimized
             />
           </div>
         </div>
@@ -180,7 +171,6 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
-              unoptimized
             />
           </div>
         </div>
@@ -191,7 +181,6 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
-              unoptimized
             />
           </div>
         </div>

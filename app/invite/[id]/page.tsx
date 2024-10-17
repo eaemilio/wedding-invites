@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import DressCode from '@/components/DressCode';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import TheDate from '@/components/TheDate';
@@ -22,8 +22,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Tables } from '@/database.types';
 import { Guest } from '@/types/Guest';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const playfair = Playfair_Display({ subsets: [] });
 
@@ -79,7 +77,7 @@ export default function Index() {
     const video = videoRef.current;
     const container = containerRef.current;
 
-    // initSmoothScrolling();
+    initSmoothScrolling();
 
     if (!video) {
       return;
@@ -188,7 +186,7 @@ export default function Index() {
         </div>
         <div className="z-10 fixed w-full h-full main-gradient"></div>
       </div>
-      <div className="main-container relative z-20 snap-mandatory snap-y -mt-[900px]">
+      <div className="main-container relative z-20 snap-mandatory snap-y">
         <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
           {guest && <WelcomeMessage guest={guest} />}
         </section>
@@ -199,7 +197,7 @@ export default function Index() {
           <Schedule />
         </section>
         <section className="w-full shrink-0 snap-start bg-zinc-900 p-0 m-0">
-          <DressCode />
+          {guest && <DressCode />}
         </section>
         <section className="w-full shrink-0 snap-start pb-16">
           <Venue />

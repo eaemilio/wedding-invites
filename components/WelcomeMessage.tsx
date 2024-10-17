@@ -1,3 +1,5 @@
+'use client';
+
 import { Guest } from '@/types/Guest';
 import { animateTitle } from '@/utils/animate-title';
 import { useGSAP } from '@gsap/react';

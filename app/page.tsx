@@ -48,7 +48,7 @@ export default function Index() {
           viewBox="0 0 172 277"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="mb-4 opacity870"
+          className="mb-4 opacity-70"
         >
           <g>
             <path

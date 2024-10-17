@@ -1,10 +1,12 @@
+'use client';
+
 import { BlurScrollEffect } from '@/utils/BlurScrollEffect';
 import { animateTitle } from '@/utils/animate-title';
 import { useGSAP } from '@gsap/react';
-import { Marcellus } from 'next/font/google';
+import { Playfair } from 'next/font/google';
 import React, { useRef } from 'react';
 
-const marcellus = Marcellus({ weight: '400', subsets: [] });
+const playfair = Playfair({ weight: '400', subsets: [] });
 
 export default function Schedule() {
   const text = useRef<HTMLHeadingElement>(null);
@@ -39,7 +41,7 @@ export default function Schedule() {
               Pm
             </h2>
             <h2
-              className={`${marcellus.className} w-full text-center mt-2 tracking-widest`}
+              className={`${playfair.className} w-full text-center mt-2 tracking-widest`}
             >
               CEREMONIA
             </h2>
@@ -52,7 +54,7 @@ export default function Schedule() {
               Pm
             </h2>
             <h2
-              className={`${marcellus.className} w-full text-center mt-2 tracking-widest`}
+              className={`${playfair.className} w-full text-center mt-2 tracking-widest`}
             >
               COCTEL
             </h2>
@@ -65,7 +67,7 @@ export default function Schedule() {
               Pm
             </h2>
             <h2
-              className={`${marcellus.className} w-full text-center mt-2 tracking-widest`}
+              className={`${playfair.className} w-full text-center mt-2 tracking-widest`}
             >
               RECEPCIÓN
             </h2>
