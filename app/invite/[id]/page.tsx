@@ -77,7 +77,7 @@ export default function Index() {
     const video = videoRef.current;
     const container = containerRef.current;
 
-    initSmoothScrolling();
+    // initSmoothScrolling();
 
     if (!video) {
       return;
@@ -186,7 +186,7 @@ export default function Index() {
         </div>
         <div className="z-10 fixed w-full h-full main-gradient"></div>
       </div>
-      <div className="main-container relative z-20 snap-mandatory snap-y">
+      <div className="main-container relative z-20 -mt-[850px]">
         <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
           {guest && <WelcomeMessage guest={guest} />}
         </section>
