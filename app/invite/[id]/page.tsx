@@ -23,6 +23,7 @@ import Link from 'next/link';
 import { Tables } from '@/database.types';
 import { Guest } from '@/types/Guest';
 import Gifts from '@/components/Gifts';
+import { animateTitle } from '@/utils/animate-title';
 
 const playfair = Playfair_Display({ subsets: [] });
 
@@ -87,7 +88,6 @@ export default function Index() {
     video.addEventListener('loadeddata', () => {
       video.currentTime = 0;
       video.pause();
-      setVideoLoaded(true);
     });
 
     once(document.documentElement, 'touchstart', function () {
@@ -103,6 +103,7 @@ export default function Index() {
           const blobURL = URL.createObjectURL(blob);
           video.setAttribute('src', blobURL);
           video.currentTime = 0.01;
+          setVideoLoaded(true);
         });
     }, 1000);
 
@@ -114,7 +115,9 @@ export default function Index() {
       const scrollTop = window.scrollY;
       const scrollHeight = container.scrollHeight - window.innerHeight;
       const scrollFraction = scrollTop / scrollHeight;
-      video.currentTime = scrollFraction * video.duration;
+      if (isFinite(scrollFraction) && !isNaN(video.duration)) {
+        video.currentTime = scrollFraction * video.duration;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -128,6 +131,7 @@ export default function Index() {
     () => {
       if (imagesLoaded && videoLoaded && !isLoading) {
         gsap.to('.main-loader', {
+          delay: 0.5,
           duration: 2,
           opacity: 0,
           ease: 'circ.out',
@@ -140,6 +144,16 @@ export default function Index() {
   );
 
   const guest: Guest | undefined | null = result?.data;
+
+  useGSAP(
+    () => {
+      if (!guest || !mainContainerRef.current) {
+        return;
+      }
+      animateTitle(mainContainerRef.current);
+    },
+    { dependencies: [guest, mainContainerRef] }
+  );
 
   if (!guest && !isLoading) {
     return (
@@ -197,14 +211,14 @@ export default function Index() {
         <section className="w-full shrink-0 snap-start px-10 py-16 text-zinc-900">
           <Schedule />
         </section>
-        <section className="w-full shrink-0 snap-start bg-zinc-900 p-0 m-0">
-          {guest && <DressCode />}
+        <section className="w-full shrink-0 snap-start h-[350px] relative flex flex-col justify-center items-center">
+          <Countdown />
         </section>
         <section className="w-full shrink-0 snap-start pb-16">
           <Venue />
         </section>
-        <section className="w-full shrink-0 snap-start h-[350px] relative flex flex-col justify-center items-center">
-          <Countdown />
+        <section className="w-full shrink-0 snap-start bg-zinc-900 p-0 m-0">
+          {guest && <DressCode />}
         </section>
         <section className="w-full shrink-0 snap-start px-10 py-24 flex flex-col justify-center items-center">
           {guest && <Rsvp guest={guest} />}

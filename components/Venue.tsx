@@ -1,23 +1,16 @@
-'use client';
-
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React from 'react';
 import MapButton from './MapButton';
 import { Playfair_Display } from 'next/font/google';
-import { animateTitle } from '@/utils/animate-title';
-import { useGSAP } from '@gsap/react';
 
 const playfair = Playfair_Display({ subsets: [] });
 
 export default function Venue() {
-  const hello = useRef<HTMLDivElement>(null);
-  // useGSAP(() => animateTitle(), { scope: hello });
-
   return (
-    <div ref={hello}>
+    <div>
       <div className="px-10 pt-16">
-        <h2 className="font-lejour-serif w-full text-5xl text-zinc-900">
-          Ubicación
+        <h2 className="content__title w-full" data-splitting data-effect>
+          <span className="font-lejour-serif text-5xl">Ubicación</span>
         </h2>
         <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl text-zinc-900">
           El lago más hermoso del mundo

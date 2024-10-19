@@ -1,7 +1,6 @@
 'use client';
 
 import { BlurScrollEffect } from '@/utils/BlurScrollEffect';
-import { animateTitle } from '@/utils/animate-title';
 import { useGSAP } from '@gsap/react';
 import { Playfair } from 'next/font/google';
 import React, { useRef } from 'react';
@@ -10,23 +9,23 @@ const playfair = Playfair({ weight: '400', subsets: [] });
 
 export default function Schedule() {
   const text = useRef<HTMLHeadingElement>(null);
-  const section = useRef<HTMLDivElement>(null);
 
-  // useGSAP(() => animateTitle(), { scope: section });
-  // useGSAP(() => {
-  //   if (!text.current) {
-  //     return;
-  //   }
+  useGSAP(() => {
+    if (!text.current) {
+      return;
+    }
 
-  //   new BlurScrollEffect(text.current, {
-  //     start: 'top bottom-=30%',
-  //     end: 'center center+=5%',
-  //   });
-  // });
+    new BlurScrollEffect(text.current, {
+      start: 'top bottom-=30%',
+      end: 'center center+=5%',
+    });
+  });
 
   return (
-    <div ref={section}>
-      <h2 className="font-lejour-serif w-full text-5xl">Itinerario</h2>
+    <div>
+      <h2 className="content__title w-full" data-splitting data-effect>
+        <span className="font-lejour-serif text-5xl">Itinerario</span>
+      </h2>
       <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl">
         Lleno de momentos especiales
       </h3>

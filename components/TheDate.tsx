@@ -10,15 +10,13 @@ export default function TheDate() {
   const dateElement = useRef<HTMLDivElement>(null);
   const section = useRef<HTMLDivElement>(null);
 
-  // useGSAP(() => {
-  //   if (!dateElement.current) {
-  //     return;
-  //   }
+  useGSAP(() => {
+    if (!dateElement.current) {
+      return;
+    }
 
-  //   new BlurScrollEffect(dateElement.current);
-  // });
-
-  // useGSAP(() => animateTitle(), { scope: section });
+    new BlurScrollEffect(dateElement.current);
+  });
 
   return (
     <div ref={section} className="relative">
@@ -32,8 +30,10 @@ export default function TheDate() {
       />
       <div className="z-10 absolute w-full h-full main-gradient"></div>
       <div className="w-full px-10 py-16">
-        <h2 className="relative z-10 font-lejour-serif w-full text-5xl text-white">
-          La fecha
+        <h2 className="content__title w-full" data-splitting data-effect>
+          <span className="font-lejour-serif text-5xl text-white">
+            La Fecha
+          </span>
         </h2>
         <h3 className="relative z-10 -mt-2 mx-10 font-lejour-script w-full text-xl text-white">
           Que nunca olvidaremos

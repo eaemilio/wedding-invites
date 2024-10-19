@@ -22,7 +22,7 @@ export default function Index() {
     if (codeInput.current) {
       codeInput.current.focus();
     }
-  }, []);
+  }, [codeInput]);
 
   const submit = () => {
     if (inputValue) {
