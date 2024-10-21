@@ -4,4 +4,6 @@ export interface Guest {
   welcome_message: string;
   rsvp: boolean;
   id: number;
+  guests_count: number;
+  confirmed_count: number;
 }

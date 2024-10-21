@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function Loader({ color }: { color?: string }) {
+export default function Loader({
+  color,
+  size,
+}: {
+  color?: string;
+  size?: number;
+}) {
   return (
     <>
       <svg
@@ -31,7 +37,7 @@ export default function Loader({ color }: { color?: string }) {
       <style jsx>
         {`
           .loading-box {
-            --uib-size: 55px;
+            --uib-size: ${size ?? 55}px;
             --uib-color: ${color || 'white'};
             --uib-speed: 1.3s;
             --uib-bg-opacity: 0.1;
