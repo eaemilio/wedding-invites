@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 
 export default function Gifts() {
   const goToRegistry = () => {
-    // window.open('http://registry.emilioandyeraldy.com', '_blank');
+    window.open('http://registry.emilioandyeraldy.com', '_blank');
   };
   return (
     <div className="w-full max-w-5xl">
