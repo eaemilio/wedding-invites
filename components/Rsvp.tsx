@@ -82,7 +82,7 @@ export default function Rsvp({ guest }: Props) {
       </Button>
 
       {guest.guests_count > 1 && rsvp && (
-        <div className="mt-10 w-44 flex flex-col gap-2">
+        <div className="mt-10 w-44 flex flex-col gap-2 text-zinc-900">
           <p className={`${playfair.className} w-full text-center`}>
             ¿Cuántos asistirán?{' '}
             <span className="text-xs">(Máximo {guest.guests_count})</span>
@@ -94,7 +94,7 @@ export default function Rsvp({ guest }: Props) {
             max={guest.guests_count}
             value={inputValue ?? ''}
             onChange={handleInputChange}
-            className={`${playfair.className} mt-4 w-44 text-center uppercase backdrop-blur-xl px-4 py-2 rounded-sm active:border-none focus:border-none active:outline-none focus:outline-none`}
+            className={`${playfair.className} bg-white mt-4 w-44 text-center uppercase backdrop-blur-xl px-4 py-2 rounded-sm active:border-none focus:border-none active:outline-none focus:outline-none`}
           />
           <Button
             className="w-44 text-white mt-2 bg-zinc-900"

@@ -10,7 +10,9 @@ export default function Venue() {
     <div>
       <div className="px-10 pt-16">
         <h2 className="content__title w-full" data-splitting data-effect>
-          <span className="font-lejour-serif text-5xl">Ubicación</span>
+          <span className="font-lejour-serif text-5xl text-zinc-900">
+            Ubicación
+          </span>
         </h2>
         <h3 className="-mt-4 mx-10 font-lejour-script w-full text-xl text-zinc-900">
           El lago más hermoso del mundo
