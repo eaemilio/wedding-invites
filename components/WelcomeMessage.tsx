@@ -23,6 +23,11 @@ export default function WelcomeMessage({ guest }: Props) {
       <p className={`mt-10 ${playfair.className} text-justify`}>
         {guest?.welcome_message}
       </p>
+      <p className={`mt-10 ${playfair.className} text-justify`}>
+        {guest?.guests_count > 1
+          ? 'Este es un momento único y esta invitación es solo para ustedes. Nos encantaría tenerlos con nosotros en nuestra celebración.'
+          : 'Recuerda que esta invitación es exclusivamente para ti. No podemos esperar a celebrarlo juntos.'}
+      </p>
     </div>
   );
 }
