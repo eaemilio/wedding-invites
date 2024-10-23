@@ -100,6 +100,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="256w"
             />
           </div>
         </div>
@@ -110,6 +111,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="256w"
             />
           </div>
         </div>
@@ -120,6 +122,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="256w"
             />
           </div>
         </div>
@@ -130,6 +133,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="256w"
             />
           </div>
         </div>
@@ -140,6 +144,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="100vw"
               unoptimized
             />
           </div>
@@ -151,6 +156,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="256w"
             />
           </div>
         </div>
@@ -161,6 +167,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="256w"
             />
           </div>
         </div>
@@ -171,6 +178,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="256w"
             />
           </div>
         </div>
@@ -181,6 +189,7 @@ export default function DressCode() {
               alt="wedding"
               className="object-cover"
               fill={true}
+              sizes="256w"
             />
           </div>
         </div>
