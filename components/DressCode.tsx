@@ -49,7 +49,7 @@ export default function DressCode() {
       }).fromTo(
         galleryItemsInner,
         {
-          scale: 2,
+          scale: 1.5,
         },
         {
           scale: 1,
