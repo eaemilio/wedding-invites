@@ -79,8 +79,6 @@ export default function Index() {
     const video = videoRef.current;
     const container = containerRef.current;
 
-    initSmoothScrolling();
-
     if (!video) {
       return;
     }
@@ -130,6 +128,8 @@ export default function Index() {
   useGSAP(
     () => {
       if (imagesLoaded && videoLoaded && !isLoading) {
+        initSmoothScrolling();
+
         gsap.to('.main-loader', {
           delay: 0.5,
           duration: 2,
