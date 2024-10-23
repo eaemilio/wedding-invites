@@ -4,10 +4,10 @@ import { Button } from './ui/button';
 
 export default function Gifts() {
   const goToRegistry = () => {
-    window.open('http://registry.emilioandyeraldy.com', '_blank');
+    // window.open('http://registry.emilioandyeraldy.com', '_blank');
   };
   return (
-    <div>
+    <div className="w-full max-w-5xl">
       <h2 className="font-lejour-serif text-9xl">"</h2>
       <p className={`${playfair.className} -mt-24`}>
         El mejor regalo para nosotros es que puedas acompañarnos en este día tan

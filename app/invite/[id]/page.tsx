@@ -193,34 +193,36 @@ export default function Index() {
         className="video-background"
       />
       <div ref={containerRef} id="container">
-        <div className="fixed z-20 top-2/3 left-5">
-          <h3 className="font-lejour-script text-lg text-white">La boda de</h3>
-          <h1 className="font-lejour-serif text-7xl text-white">
+        <div className="fixed z-20 top-2/3 left-5 w-auto md:left-0 md:w-full md:text-center">
+          <h3 className="font-lejour-script text-lg text-white md:text-2xl">
+            La boda de
+          </h3>
+          <h1 className="font-lejour-serif text-7xl text-white md:text-9xl">
             EMILIO & YERALDY
           </h1>
         </div>
         <div className="z-10 fixed w-full h-full main-gradient"></div>
       </div>
-      <div className="main-container relative z-20 -mt-[850px]">
-        <section className="w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900">
+      <div className="main-container relative z-20 -mt-[850px] flex flex-col items-center">
+        <section className="max-w-5xl w-full shrink-0 snap-start flex flex-col px-10 py-16 text-zinc-900 md:py-40">
           {guest && <WelcomeMessage guest={guest} />}
         </section>
         <section className="relative w-full shrink-0 snap-start">
           <TheDate />
         </section>
-        <section className="w-full shrink-0 snap-start px-10 py-16 text-zinc-900">
+        <section className="max-w-5xl w-full shrink-0 snap-start px-10 py-16 text-zinc-900 flex flex-col md:py-40">
           <Schedule />
         </section>
-        <section className="w-full shrink-0 snap-start h-[350px] relative flex flex-col justify-center items-center">
+        <section className="w-full shrink-0 snap-start h-[350px] md:h-[500px] relative flex flex-col justify-center items-center">
           <Countdown />
         </section>
-        <section className="w-full shrink-0 snap-start pb-16">
+        <section className="w-full max-w-5xl shrink-0 snap-start pb-16 flex flex-col md:py-40">
           <Venue />
         </section>
         <section className="w-full shrink-0 snap-start bg-zinc-900 p-0 m-0">
           {guest && <DressCode />}
         </section>
-        <section className="w-full shrink-0 snap-start px-10 py-24 flex flex-col justify-center items-center">
+        <section className="h-auto w-full max-w-5xl shrink-0 snap-start px-10 py-24 flex flex-col justify-center items-center md:py-40 md:flex-row md:gap-24 md:h-[650px]">
           {guest && <Rsvp guest={guest} />}
         </section>
         <section className="w-full shrink-0 snap-start px-10 py-24 flex flex-col justify-center items-center text-white bg-zinc-900">

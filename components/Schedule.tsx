@@ -30,11 +30,14 @@ export default function Schedule() {
         Lleno de momentos especiales
       </h3>
       <div className="flex flex-col justify-center items-center my-6">
-        <div className="mb-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
-        <div className="flex flex-col gap-10" ref={text}>
+        <div className="mb-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 md:hidden"></div>
+        <div
+          className="flex flex-col gap-10 md:flex-row mt-2 md:mt-10"
+          ref={text}
+        >
           <div>
             <h2 className="font-lejour-serif w-full text-center text-6xl tracking-tightest">
-              4 : 30
+              4 : 00
             </h2>
             <h2 className="font-lejour-script w-full text-center text-3xl tracking-tightest -mt-4">
               Pm
@@ -47,7 +50,7 @@ export default function Schedule() {
           </div>
           <div>
             <h2 className="font-lejour-serif w-full text-center text-6xl tracking-tightest">
-              5 : 30
+              5 : 00
             </h2>
             <h2 className="font-lejour-script w-full text-center text-3xl tracking-tightest -mt-4">
               Pm
@@ -60,7 +63,7 @@ export default function Schedule() {
           </div>
           <div>
             <h2 className="font-lejour-serif w-full text-center text-6xl tracking-tightest">
-              6 : 30
+              6 : 00
             </h2>
             <h2 className="font-lejour-script w-full text-center text-3xl tracking-tightest -mt-4">
               Pm
@@ -68,11 +71,11 @@ export default function Schedule() {
             <h2
               className={`${playfair.className} w-full text-center mt-2 tracking-widest`}
             >
-              RECEPCIÓN
+              CENA Y FIESTA
             </h2>
           </div>
         </div>
-        <div className="mt-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
+        <div className="mt-8 h-[75px] min-h-[1em] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 md:hidden"></div>
       </div>
     </div>
   );

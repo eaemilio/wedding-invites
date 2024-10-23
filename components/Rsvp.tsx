@@ -61,11 +61,13 @@ export default function Rsvp({ guest }: Props) {
 
   return (
     <>
-      <h2 className="font-lejour-serif text-9xl text-zinc-900">RS</h2>
-      <h2 className="font-lejour-serif text-9xl text-zinc-900">VP</h2>
-      <h2 className="font-lejour-script text-sm text-zinc-900">
-        Confirma tu asistencia
-      </h2>
+      <div className="flex flex-col">
+        <h2 className="font-lejour-serif text-9xl text-zinc-900">RS</h2>
+        <h2 className="font-lejour-serif text-9xl text-zinc-900">VP</h2>
+        <h2 className="font-lejour-script text-sm text-zinc-900">
+          Confirma tu asistencia
+        </h2>
+      </div>
       <div className="flex flex-col gap-2 mt-10 w-56">
         <Button
           className={`hover:text-white hover:bg-zinc-900 w-full ${rsvp === true ? 'text-white bg-zinc-900' : 'text-zinc-900'}`}
@@ -81,37 +83,36 @@ export default function Rsvp({ guest }: Props) {
         >
           No {assistance}
         </Button>
+        {guest.guests_count > 1 && rsvp && (
+          <div className="mt-10 w-56 flex flex-col gap-2 text-zinc-900">
+            <p className={`${playfair.className} w-full text-center`}>
+              ¿Cuántos asistirán?{' '}
+              <span className="text-xs">(Máximo {guest.guests_count})</span>
+            </p>
+            <input
+              type="number"
+              placeholder="0"
+              min={0}
+              max={guest.guests_count}
+              value={inputValue ?? ''}
+              onChange={handleInputChange}
+              className={`${playfair.className} bg-white mt-4 w-full text-center uppercase backdrop-blur-xl px-4 py-2 rounded-sm active:border-none focus:border-none active:outline-none focus:outline-none`}
+            />
+            <Button
+              className="w-full text-white mt-2 bg-zinc-900"
+              onClick={updateCount}
+              disabled={
+                isLoading ||
+                !inputValue ||
+                inputValue > guest.guests_count ||
+                inputValue <= 0
+              }
+            >
+              {isLoading ? <Loader size={30} /> : 'Confirmar'}
+            </Button>
+          </div>
+        )}
       </div>
-
-      {guest.guests_count > 1 && rsvp && (
-        <div className="mt-10 w-56 flex flex-col gap-2 text-zinc-900">
-          <p className={`${playfair.className} w-full text-center`}>
-            ¿Cuántos asistirán?{' '}
-            <span className="text-xs">(Máximo {guest.guests_count})</span>
-          </p>
-          <input
-            type="number"
-            placeholder="0"
-            min={0}
-            max={guest.guests_count}
-            value={inputValue ?? ''}
-            onChange={handleInputChange}
-            className={`${playfair.className} bg-white mt-4 w-full text-center uppercase backdrop-blur-xl px-4 py-2 rounded-sm active:border-none focus:border-none active:outline-none focus:outline-none`}
-          />
-          <Button
-            className="w-full text-white mt-2 bg-zinc-900"
-            onClick={updateCount}
-            disabled={
-              isLoading ||
-              !inputValue ||
-              inputValue > guest.guests_count ||
-              inputValue <= 0
-            }
-          >
-            {isLoading ? <Loader size={30} /> : 'Confirmar'}
-          </Button>
-        </div>
-      )}
     </>
   );
 }

@@ -184,7 +184,7 @@ export default function DressCode() {
             />
           </div>
         </div>
-        <div className="caption flex flex-col px-10" ref={caption}>
+        <div className="caption flex flex-col px-10 md:px-60" ref={caption}>
           <h2 className="font-lejour-serif w-full text-left text-5xl text-white">
             Dress Code
           </h2>

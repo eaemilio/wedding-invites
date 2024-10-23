@@ -18,34 +18,36 @@ export default function Venue() {
           El lago más hermoso del mundo
         </h3>
       </div>
-      <div className="w-full h-72 relative flex flex-col justify-center items-center gap-2">
-        <Image
-          className="object-cover"
-          src="/images/map.png"
-          alt="map"
-          fill={true}
-          unoptimized
-        />
-        <MapButton map="maps" />
-        <MapButton map="waze" />
-      </div>
+      <div className="flex flex-col gap-0 md:flex-row md:gap-10">
+        <div className="w-full h-72 relative flex flex-col justify-center items-center gap-2 md:h-[535px]">
+          <Image
+            className="object-cover"
+            src="/images/map.png"
+            alt="map"
+            fill={true}
+            unoptimized
+          />
+          <MapButton map="maps" />
+          <MapButton map="waze" />
+        </div>
 
-      <div className="w-full flex flex-col justify-center items-center">
-        <label
-          className={`font-lejour-serif z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
-        >
-          HOTEL JARDINES DEL LAGO
-        </label>
-        <label
-          className={`${playfair.className} text-xs z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
-        >
-          Calle Monterrey, Panajachel
-        </label>
-        <label
-          className={`${playfair.className} text-xs z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
-        >
-          7762 6114
-        </label>
+        <div className="w-full flex flex-col justify-center items-center">
+          <label
+            className={`font-lejour-serif z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
+          >
+            HOTEL JARDINES DEL LAGO
+          </label>
+          <label
+            className={`${playfair.className} text-xs z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
+          >
+            Calle Monterrey, Panajachel
+          </label>
+          <label
+            className={`${playfair.className} text-xs z-10 w-full text-center mt-2 tracking-widest text-zinc-900 opacity-75`}
+          >
+            7762 6114
+          </label>
+        </div>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ export default function TheDate() {
   });
 
   return (
-    <div ref={section} className="relative">
+    <div ref={section} className="relative w-full flex flex-col items-center">
       <Image
         src="/images/SDYERALDYEMILIO-5.jpg"
         alt="wedding"
@@ -29,7 +29,7 @@ export default function TheDate() {
         priority
       />
       <div className="z-10 absolute w-full h-full main-gradient"></div>
-      <div className="w-full px-10 py-16">
+      <div className="w-full px-10 py-16 max-w-5xl md:py-40">
         <h2 className="content__title w-full" data-splitting data-effect>
           <span className="font-lejour-serif text-5xl text-white">
             La Fecha
