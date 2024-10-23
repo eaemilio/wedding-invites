@@ -17,7 +17,8 @@ export default function WelcomeMessage({ guest }: Props) {
         </span>
       </h2>
       <h3 className="-mt-4 mx-10 font-lejour-script w-auto text-left text-xl">
-        Los invitamos a celebrar con nosotros
+        {guest.guests_count > 1 ? 'Los' : 'Te'} invitamos a celebrar con
+        nosotros
       </h3>
       <p className={`mt-10 ${playfair.className} text-justify`}>
         {guest?.welcome_message}
